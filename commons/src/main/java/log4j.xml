@@ -31,34 +31,6 @@
     <logger name="org">
     	<level value="INFO" />
     </logger>
-    <logger name="com.sf.fvp.core.store">
-    	<level value="INFO" />
-    </logger>
-    <logger name="com.sf.fvp">
-    	<level value="info" />
-    </logger>
-    <logger name="org.apache.mina.filter.logging">
-    	<level value="error" />
-    </logger>
-    <logger name="com.sf.remoting.server.core.invoke.RMIDispatcher">
-    	<level value="error" />
-    </logger>
-     <logger name="com.sf.fvp.calc.executor.BarRecordExecutor">
-    	<level value="info" />
-    </logger>
-<!--      <logger name="com.sf.fvp.calc.executor.RouteInferExecutor"> -->
-<!--     	<level value="debug" /> -->
-<!--     </logger> -->
-<!--      <logger name="com.sf.fvp.calc.executor.ContainerWaybillRelExecutor"> -->
-<!--     	<level value="debug" /> -->
-<!--     </logger> -->
-<!--      <logger name="com.sf.fvp.calc.executor.PackageTransferExecutor"> -->
-<!--     	<level value="debug" /> -->
-<!--     </logger> -->
-<!-- 	<logger name="com.sf.remoting.server"> -->
-<!-- 		<level value="debug" /> -->
-<!-- 	</logger> -->
-   
     <!-- level: FATAL,ERROR,WARN,INFO,DEBUG,TRACE -->
     <root>   
         <level value="info" />
