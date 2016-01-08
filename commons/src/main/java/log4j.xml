@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">   
+  
+<log4j:configuration>   
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">  
+        <layout class="org.apache.log4j.PatternLayout">   
+            <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{1}.%M(%F:%L) - %m%n" />
+        </layout>   
+    </appender>    
+
+    <appender name="DailyFile" class="org.apache.log4j.DailyRollingFileAppender">   
+        <param name="file" value="./calc-info.log" />   
+        <param name="datePattern" value="'.'yyyyMMdd" />   
+        <layout class="org.apache.log4j.PatternLayout">   
+<!--               <param name="conversionPattern" value="%d %-5p [%t] %c{1} %l %m%n" /> -->
+              <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{1}.%M(%F:%L) - %m%n" />
+        </layout>   
+    </appender>
+   
+    
+    <appender name="errorfile" class="org.apache.log4j.RollingFileAppender">
+        <param name="maxFileSize" value="10MB" />
+        <param name="maxBackupIndex" value="10" />
+        <param name="threshold" value="error" />
+        <param name="file" value="./calc-error.log" />  
+        <layout class="org.apache.log4j.PatternLayout">   
+            <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{1}.%M(%F:%L) - %m%n" />   
+        </layout>   
+    </appender>
+    
+    <logger name="org">
+    	<level value="INFO" />
+    </logger>
+    <logger name="com.sf.fvp.core.store">
+    	<level value="INFO" />
+    </logger>
+    <logger name="com.sf.fvp">
+    	<level value="info" />
+    </logger>
+    <logger name="org.apache.mina.filter.logging">
+    	<level value="error" />
+    </logger>
+    <logger name="com.sf.remoting.server.core.invoke.RMIDispatcher">
+    	<level value="error" />
+    </logger>
+     <logger name="com.sf.fvp.calc.executor.BarRecordExecutor">
+    	<level value="info" />
+    </logger>
+<!--      <logger name="com.sf.fvp.calc.executor.RouteInferExecutor"> -->
+<!--     	<level value="debug" /> -->
+<!--     </logger> -->
+<!--      <logger name="com.sf.fvp.calc.executor.ContainerWaybillRelExecutor"> -->
+<!--     	<level value="debug" /> -->
+<!--     </logger> -->
+<!--      <logger name="com.sf.fvp.calc.executor.PackageTransferExecutor"> -->
+<!--     	<level value="debug" /> -->
+<!--     </logger> -->
+<!-- 	<logger name="com.sf.remoting.server"> -->
+<!-- 		<level value="debug" /> -->
+<!-- 	</logger> -->
+   
+    <!-- level: FATAL,ERROR,WARN,INFO,DEBUG,TRACE -->
+    <root>   
+        <level value="info" />
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="DailyFile"/>   
+        <appender-ref ref="errorfile"/>   
+    </root>   
+</log4j:configuration>  
