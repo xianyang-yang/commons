@@ -1,8 +1,6 @@
 
 package com.sf.commons.file;
 
-import static org.apache.commons.lang.StringUtils.stripEnd;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -43,8 +41,54 @@ public class FileSizeUtlis {
 			level++;
 		}
 		String size = new BigDecimal(result).setScale(2, RoundingMode.HALF_UP).toString();
-		size=stripEnd(stripEnd(size, "0"),".");
-		return size+ sizeUnits[level];
+		size = rtrim(size, '0', '.');
+		return size + sizeUnits[level];
+	}
 
+	/**
+	 * 去掉字符串右边的连续特殊字符，先匹配第一个，全部删除完成后再匹配第二个字符,以次类推
+	 * 
+	 * <pre>
+	 * rtrim("1.700", '0', '.')=>1.7
+	 * rtrim("1.00", '0', '.')=>1
+	 * rtrim("1.75", '0', '.')=>1.75
+	 * rtrim("10.00", '0', '.')=>10
+	 * rtrim("", '0', '.')=>""
+	 * rtrim(null, '0', '.')=>null
+	 * </pre>
+	 * 
+	 * @param s
+	 *            目标字符串
+	 * @param skipChars
+	 *            需要剔除的字符数组
+	 * @return 截取后的字符串
+	 */
+	public static String rtrim(String s, char... skipChars) {
+		if (s == null || "".equals(s)) {
+			return s;
+		}
+		int index = s.length();
+		for (char skipChar : skipChars) {
+			index = forwardSkipChar(s, index, skipChar);
+		}
+		return index < 1 ? "" : s.substring(0, index);
+	}
+
+	/**
+	 * 从字符串指定位置往前跳过连续的指定字符
+	 * 
+	 * @param s
+	 *            字符串
+	 * @param index
+	 *            指定位置 （1->s.length()）
+	 * @param c
+	 *            指定字符
+	 * @return 跳过之后的位置
+	 */
+	private static int forwardSkipChar(String s, int index, char c) {
+		while (index > 0 && s.charAt(index - 1) == c) {
+			index--;
+		}
+		return index;
 	}
 }

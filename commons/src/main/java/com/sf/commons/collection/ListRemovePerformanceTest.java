@@ -26,7 +26,7 @@ public class ListRemovePerformanceTest {
 	public static void main(String[] args) {
 		
 		int maxSize = 10000;
-		int tryTimes = 50;
+		int tryTimes = 500;
 		for (int i = 0; i < tryTimes; i++) {
 			removeByCopy(initList(maxSize));
 			removeDirectly(initList(maxSize));
