@@ -29,7 +29,7 @@ public class ExcelWriter {
 	/**
 	 * 默认最多保存多少行在内存中
 	 */
-	private static final int DEFAULT_MAX_ROW_IN_MEMORY = 10000;
+	private static final int DEFAULT_MAX_ROW_IN_MEMORY = 20000;
 	private SXSSFWorkbook wb;
 	private Sheet sheet;
 	private int curRowNum = 0;
