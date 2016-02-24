@@ -28,14 +28,15 @@
         </layout>   
     </appender>
     
-    <logger name="org">
-    	<level value="INFO" />
+    <logger name="dao">
+    	<level value="debug" />
     </logger>
+    
     <!-- level: FATAL,ERROR,WARN,INFO,DEBUG,TRACE -->
     <root>   
         <level value="info" />
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="DailyFile"/>   
+        <appender-ref ref="DailyFile"/> 
         <appender-ref ref="errorfile"/>   
     </root>   
 </log4j:configuration>  
