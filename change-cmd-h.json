@@ -1,0 +1,28 @@
+{
+  "title": "change cmd+h to cmd+-",
+  "rules": [
+    {
+      "description": "change cmd+h to cmd+-",
+      "manipulators": [
+        {
+          
+          "from": {
+            "key_code": "h",
+            "modifiers": [
+                "left_command"
+             ]
+          },
+          "to": [
+            {
+              "key_code": "-",
+            "modifiers": [
+                "left_command"
+             ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
